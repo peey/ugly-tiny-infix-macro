@@ -17,4 +17,5 @@
   :serial t
   :components ((:file "defpackage")
 	       (:file "default-operator-precedence-alist")
-               (:file "infix-macro")))
+	       (:file "error-handling")
+               (:file "ugly-tiny-infix-macro")))
