@@ -15,7 +15,7 @@ At its simplest,
 
 You can use various operators (which is just a fancy name for a function) at once and they're grouped according to the precedence.
 
-Default precedence of operators that ships with the project is taken from the [C++ standard](http://en.cppreference.com/w/cpp/language/operator_precedence). Check out the section on customizing the list of operators and their priorities if you wish to do so.
+Default precedence of operators that ships with the project is taken from the [C++ standard](http://en.cppreference.com/w/cpp/language/operator_precedence). Check the `default-operator-precedence-alist.lisp` file for a full list of operators available by default. Check out the section on customizing the list of operators and their priorities if you wish to do so.
 
     ($ 1 + 2 *  3)      ; gets converted to (+ 1 (* 2 3))
     ($ 1 < 2 and 2 < 3) ; gets converted to (AND (< 1 2) (< 2 3))
@@ -35,19 +35,19 @@ You may write the last example as 6 / (1 + 2) in math. Most deeply nested bracke
 
 The package, named `:ugly-tiny-lisp-macro` with the nickname `:ugly-infix` exports three symbols -
 
- - $ : this is the macro itself
- - *operator-precedence-alist* : An alist of operators (lisp functions) and their priorities
- - malformed-infix-expression-error : A condition which is signaled when something other than the operators in `*operator-precedence-alist* is found at even positions in the expression, or if the expression length is not an odd number.
+ - `$` : this is the macro itself
+ - `*operator-precedence-alist*` : An alist of operators (lisp functions) and their priorities
+ - `malformed-infix-expression-error` : A condition which is signaled when something other than the operators in `*operator-precedence-alist* is found at even positions in the expression, or if the expression length is not an odd number.
  
 ## Customizing The List of Operators and Their Priorities
 
 Operator precedence is stored as an alist associated with the symbol `*operator-precedence-alist*`. An example of a valid alist that one may assign for DMAS precedence may look like:
 
-    (setf ugly-infix:*operator-precedence-alist* 
+    (setf ugly-infix:*operator-precedence-alist*
     	  '(( / . 1) ; a lower number means a higher priority/precedence
-	    ( * . 1) ; / and * are at the same priority/precedence
-	    ( + . 2) ; a higher number means a lower priority/precedence
-	    ( - . 2)))
+    	    ( * . 1) ; / and * are at the same priority/precedence
+    	    ( + . 2) ; a higher number means a lower priority/precedence
+    	    ( - . 2)))
 
 You may modify `*operator-precedence-alist*` in any manner by resetting, pushing, etc as long as it is a valid alist of operators and their priority. The position in the list / order of cons elements does not matter.
 
