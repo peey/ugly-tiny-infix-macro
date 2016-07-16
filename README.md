@@ -31,7 +31,7 @@ You may write the last example as 6 / (1 + 2) in math. Most deeply nested bracke
 
 **WARNING**: As explained in the example on nesting the macro, brackets are assumed to be valid lisp forms. Do not use them for grouping. Writing `($ 6 / (1 + 2))` will give you an error as it's expanded to `(/ 6 (1 + 2))` and `(1 + 2)` is not a valid lisp form. Your lisp environment will try to evaluate it and find that `1` isn't name of a function that can be called with the arguments `+` and `2`. This is what puts "ugly" in the the name of the project, because it's not prettiest to the eye, but some may find that it's easy to reason about.
 
-# Installation
+## Installation
 
 This package is available on quicklisp. You may install it using
 
