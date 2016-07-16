@@ -1,5 +1,5 @@
 ;; to use
-;; 1. Load everything (if using slime use C-k)
+;; 1. Load everything (if using slime use C-k), may have to load manually using ql or by adding to asdf:*central-registry*
 ;; 2. Switch to package :ugly-tiny-infix-macro-test (using (in-package :ugly-tiny-infix-macro-test))
 ;; 3. Run tests via (run-tests :all)
 
